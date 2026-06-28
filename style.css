@@ -78,3 +78,42 @@ nav a {
   padding: 20px;
   background: black;
 }
+.product-page{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:40px;
+}
+
+.product-image img{
+  width:400px;
+  border-radius:10px;
+}
+
+.product-options{
+  max-width:300px;
+}
+
+.colors span{
+  width:25px;
+  height:25px;
+  display:inline-block;
+  margin:5px;
+  border-radius:50%;
+  cursor:pointer;
+  border:1px solid #fff;
+}
+
+.qty button{
+  padding:5px 10px;
+}
+
+.buy{
+  margin-top:20px;
+  padding:10px;
+  width:100%;
+  background:#1e90ff;
+  border:none;
+  color:white;
+  cursor:pointer;
+}
