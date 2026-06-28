@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VENDO - المنتج</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">VENDO</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="#">🛒 السلة</a>
+  </nav>
+</header>
+
+<section class="product-page">
+
+  <!-- صورة المنتج -->
+  <div class="product-image">
+    <img id="mainImage" src="https://via.placeholder.com/400" />
+  </div>
+
+  <!-- خيارات المنتج -->
+  <div class="product-options">
+
+    <h2>تيشيرت VENDO</h2>
+    <p id="price">السعر: 299 جنيه</p>
+
+    <!-- اللون -->
+    <h4>اللون</h4>
+    <div class="colors">
+      <span onclick="changeColor('black')" style="background:black"></span>
+      <span onclick="changeColor('white')" style="background:white"></span>
+      <span onclick="changeColor('blue')" style="background:blue"></span>
+      <span onclick="changeColor('red')" style="background:red"></span>
+    </div>
+
+    <!-- المقاس -->
+    <h4>المقاس</h4>
+    <select id="size">
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
+
+    <!-- الخامة -->
+    <h4>الخامة</h4>
+    <select id="quality" onchange="updatePrice()">
+      <option value="1">جيد</option>
+      <option value="1.2">ممتاز</option>
+      <option value="1.5">VENDO Premium</option>
+    </select>
+
+    <!-- الاسم على المنتج -->
+    <h4>اكتب اسمك على التيشيرت</h4>
+    <input id="customText" type="text" oninput="previewText()" placeholder="مثال: Ahmed">
+
+    <!-- رفع لوجو -->
+    <h4>ارفع لوجو</h4>
+    <input type="file" onchange="uploadLogo(event)">
+
+    <!-- الكمية -->
+    <h4>الكمية</h4>
+    <div class="qty">
+      <button onclick="changeQty(-1)">-</button>
+      <span id="qty">1</span>
+      <button onclick="changeQty(1)">+</button>
+    </div>
+
+    <h3 id="totalPrice">الإجمالي: 299 جنيه</h3>
+
+    <button class="buy">🛒 إضافة للسلة</button>
+
+  </div>
+
+</section>
+
+<script src="app.js"></script>
+
+</body>
+</html>
