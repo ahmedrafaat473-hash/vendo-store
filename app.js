@@ -45,3 +45,19 @@ function uploadLogo(event){
   let file = event.target.files[0];
   console.log("Logo uploaded:", file.name);
 }
+function addToCart(){
+
+  let product = {
+    name: "تيشيرت VENDO",
+    price: basePrice * quality,
+    qty: qty
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push(product);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert("تمت الإضافة إلى السلة 🛒");
+}
