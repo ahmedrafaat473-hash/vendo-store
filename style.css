@@ -117,3 +117,15 @@ nav a {
   color:white;
   cursor:pointer;
 }
+.cart-box{
+  max-width:600px;
+  margin:auto;
+}
+
+.cart-item{
+  background:#1a1a1a;
+  padding:15px;
+  margin:10px;
+  border-radius:10px;
+  text-align:center;
+}
