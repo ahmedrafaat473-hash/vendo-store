@@ -81,6 +81,41 @@
 </section>
 
 <script src="app.js"></script>
+<script>
+console.log("JS WORKING");
 
+let qty = 1;
+let basePrice = 299;
+let selectedPrice = basePrice;
+
+function changeQty(v){
+  qty += v;
+  if(qty < 1) qty = 1;
+  document.getElementById("qty").innerText = qty;
+}
+
+function updatePrice(){
+  let q = document.getElementById("quality").value;
+  selectedPrice = basePrice * q;
+}
+
+function addToCart(){
+
+  let product = {
+    name: "تيشيرت VENDO",
+    price: selectedPrice,
+    qty: qty,
+    size: document.getElementById("size").value
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push(product);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert("تمت الإضافة للسلة 🛒");
+}
+</script>
 </body>
 </html>
