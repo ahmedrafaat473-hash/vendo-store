@@ -1,20 +1,33 @@
+let qty = 1;
+let basePrice = 299;
+let selectedPrice = basePrice;
+
+function changeQty(value) {
+  qty += value;
+  if (qty < 1) qty = 1;
+  document.getElementById("qty").innerText = qty;
+  updateTotal();
+}
+
+function updatePrice() {
+  let quality = document.getElementById("quality").value;
+  selectedPrice = basePrice * quality;
+  updateTotal();
+}
+
+function updateTotal() {
+  let total = selectedPrice * qty;
+  document.getElementById("totalPrice").innerText =
+    "الإجمالي: " + total + " جنيه";
+}
+
 function addToCart() {
 
-  let name = "تيشيرت VENDO";
-
-  let size = document.getElementById("size").value;
-  let quality = document.getElementById("quality").value;
-  let qty = parseInt(document.getElementById("qty").innerText);
-
-  let basePrice = 299;
-  let price = basePrice * quality;
-
   let product = {
-    name: name,
-    size: size,
-    quality: quality,
-    price: price,
-    qty: qty
+    name: "تيشيرت VENDO",
+    price: selectedPrice,
+    qty: qty,
+    size: document.getElementById("size").value
   };
 
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
