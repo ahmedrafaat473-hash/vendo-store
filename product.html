@@ -13,33 +13,21 @@
   <div class="logo">VENDO</div>
   <nav>
     <a href="index.html">الرئيسية</a>
-    <a href="#">🛒 السلة</a>
+    <a href="cart.html">🛒 السلة</a>
   </nav>
 </header>
 
 <section class="product-page">
 
-  <!-- صورة المنتج -->
   <div class="product-image">
-    <img id="mainImage" src="https://via.placeholder.com/400" />
+    <img src="https://via.placeholder.com/400" />
   </div>
 
-  <!-- خيارات المنتج -->
   <div class="product-options">
 
     <h2>تيشيرت VENDO</h2>
-    <p id="price">السعر: 299 جنيه</p>
+    <p>السعر: 299 جنيه</p>
 
-    <!-- اللون -->
-    <h4>اللون</h4>
-    <div class="colors">
-      <span onclick="changeColor('black')" style="background:black"></span>
-      <span onclick="changeColor('white')" style="background:white"></span>
-      <span onclick="changeColor('blue')" style="background:blue"></span>
-      <span onclick="changeColor('red')" style="background:red"></span>
-    </div>
-
-    <!-- المقاس -->
     <h4>المقاس</h4>
     <select id="size">
       <option>S</option>
@@ -48,25 +36,15 @@
       <option>XL</option>
     </select>
 
-    <!-- الخامة -->
     <h4>الخامة</h4>
     <select id="quality" onchange="updatePrice()">
       <option value="1">جيد</option>
       <option value="1.2">ممتاز</option>
-      <option value="1.5">VENDO Premium</option>
+      <option value="1.5">Premium</option>
     </select>
 
-    <!-- الاسم على المنتج -->
-    <h4>اكتب اسمك على التيشيرت</h4>
-    <input id="customText" type="text" oninput="previewText()" placeholder="مثال: Ahmed">
-
-    <!-- رفع لوجو -->
-    <h4>ارفع لوجو</h4>
-    <input type="file" onchange="uploadLogo(event)">
-
-    <!-- الكمية -->
     <h4>الكمية</h4>
-    <div class="qty">
+    <div>
       <button onclick="changeQty(-1)">-</button>
       <span id="qty">1</span>
       <button onclick="changeQty(1)">+</button>
@@ -74,48 +52,13 @@
 
     <h3 id="totalPrice">الإجمالي: 299 جنيه</h3>
 
-    <button class="buy" onclick="addToCart()">🛒 إضافة للسلة</button>
+    <button onclick="addToCart()">🛒 إضافة للسلة</button>
 
   </div>
 
 </section>
 
 <script src="app.js"></script>
-<script>
-console.log("JS WORKING");
 
-let qty = 1;
-let basePrice = 299;
-let selectedPrice = basePrice;
-
-function changeQty(v){
-  qty += v;
-  if(qty < 1) qty = 1;
-  document.getElementById("qty").innerText = qty;
-}
-
-function updatePrice(){
-  let q = document.getElementById("quality").value;
-  selectedPrice = basePrice * q;
-}
-
-function addToCart(){
-
-  let product = {
-    name: "تيشيرت VENDO",
-    price: selectedPrice,
-    qty: qty,
-    size: document.getElementById("size").value
-  };
-
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  cart.push(product);
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-
-  alert("تمت الإضافة للسلة 🛒");
-}
-</script>
 </body>
 </html>
